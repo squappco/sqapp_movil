@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context="com.example.jdrod.squapp.LoginActivity">
+    tools:context="com.squapp.LoginActivity">
 
 
     <com.facebook.login.widget.LoginButton

@@ -1,10 +1,12 @@
-package com.example.jdrod.squapp;
+package com.squapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.jdrod.squapp.R;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -22,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         facebookLoginButton = (LoginButton)findViewById(R.id.login_button);
+        callbackManager = CallbackManager.Factory.create();
         facebookLoginButton.setReadPermissions("email");
         facebookLoginConnection();
     }
@@ -30,20 +33,26 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast toast = Toast.makeText(getBaseContext(), "Login",Toast.LENGTH_LONG);
-                Log.d("Login Act","Login");
+                Log.w("Login Act","Login");
             }
 
             @Override
             public void onCancel() {
                 Toast toast = Toast.makeText(getBaseContext(), "Cancel",Toast.LENGTH_LONG);
-                Log.d("Login Act","Cancel");
+                Log.w("Login Act","Cancel");
             }
 
             @Override
             public void onError(FacebookException exception) {
                 Toast toast = Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_LONG);
-                Log.d("Login Act","Error");
+                Log.w("Login Act","Error");
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.example.jdrod.squapp;
+package com.squapp;
 
 import org.junit.Test;
 

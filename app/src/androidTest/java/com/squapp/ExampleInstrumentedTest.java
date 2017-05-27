@@ -1,4 +1,4 @@
-package com.example.jdrod.squapp;
+package com.squapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
