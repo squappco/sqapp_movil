@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Squapp</string>
+    <string name="placeholder">PlaceHolder</string>
+    <string name="fb_login">Facebook Login</string>
+    <string name="facebook_app_id">1302235013230199</string>
+    <string name="fb_login_protocol_scheme">fb166319610444001</string>
 </resources>

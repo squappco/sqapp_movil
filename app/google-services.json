@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "804944621254",
+    "firebase_url": "https://squapp-co.firebaseio.com",
+    "project_id": "squapp-co",
+    "storage_bucket": "squapp-co.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804944621254:android:c145cd769b0791a3",
+        "android_client_info": {
+          "package_name": "com.example.jdrod.squapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804944621254-r59oh2mvl9odnu1ose353kk8kmo03fth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jdrod.squapp",
+            "certificate_hash": "933b0d1837035df5458f302f1a668447a6b486c7"
+          }
+        },
+        {
+          "client_id": "804944621254-u6vr2ei61homfirpe6scoqfcn86sa74v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCipAnrha5XpH-5t4kj1HSmN6vyq1EhLL4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804944621254-u6vr2ei61homfirpe6scoqfcn86sa74v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
