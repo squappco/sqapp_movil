@@ -1,6 +1,7 @@
 package com.squapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -88,22 +89,12 @@ public class MapsFragment extends Fragment {
             @Override
             public void onMapReady(GoogleMap myMap) {
                 mMap = myMap;
-                mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-
-                    @Override public boolean onMarkerClick(Marker marker) {
-                        //  Take some action here
-                        return true;
-                    }
-
-                });
-
-                // For dropping a marker at a point on the Map
                 LatLng sydney = new LatLng(4.673477, -74.048705);
-                mMap.addMarker(new MarkerOptions().position(sydney).title("Tu Posición").snippet("Marker Description"));
-
-                // For zooming automatically to the location of the marker
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
                 mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
+
             }
         });
 
@@ -131,12 +122,30 @@ public class MapsFragment extends Fragment {
             for (Data data : greeting.getData()) {
                 mMap.addMarker(new MarkerOptions()
                         .title(data.getName())
-//                        .snippet(Integer.toString(jsonObj.getInt("population")))
                         .position(new LatLng(
                                 Double.valueOf(data.getLat()),
                                 Double.valueOf(data.getLng())
                         ))
                 );
+
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+//                        Intent intent = new Intent(MapActivity.this,OtherActivity.class);
+//                        startActivity(intent);
+                        String lat = String.valueOf(marker.getPosition().latitude);
+                        String lng = String.valueOf(marker.getPosition().longitude);
+
+                        final String url = "http://10.105.168.133/hack/public/fields?access_token=a&lat=" + lat + "&lng=" + lng;
+                        RestTemplate restTemplate = new RestTemplate();
+                        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                        Data greeting = restTemplate.getForObject(url, Data.class);
+
+                        CreateGameFragment cgf = new CreateGameFragment();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.drawer_container, cgf).commit();
+
+                    }
+                });
             }
 
         }
