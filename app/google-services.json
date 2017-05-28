@@ -9,6 +9,7 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:804944621254:android:26157d2607693fe1",
+<<<<<<< HEAD
         "android_client_info": {
           "package_name": "com.squapp"
         }
@@ -40,19 +41,13 @@
     {
       "client_info": {
         "mobilesdk_app_id": "1:804944621254:android:c145cd769b0791a3",
+=======
+>>>>>>> 07d40ae9a3fd9b6f4b3dd45c1b7e5f26e077082a
         "android_client_info": {
-          "package_name": "com.example.jdrod.squapp"
+          "package_name": "com.squapp"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "804944621254-r59oh2mvl9odnu1ose353kk8kmo03fth.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.jdrod.squapp",
-            "certificate_hash": "933b0d1837035df5458f302f1a668447a6b486c7"
-          }
-        },
         {
           "client_id": "804944621254-u6vr2ei61homfirpe6scoqfcn86sa74v.apps.googleusercontent.com",
           "client_type": 3
@@ -68,13 +63,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "804944621254-u6vr2ei61homfirpe6scoqfcn86sa74v.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
