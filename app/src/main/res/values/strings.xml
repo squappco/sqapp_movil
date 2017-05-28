@@ -22,10 +22,10 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="date">Date: </string>
-    <string name="hour">Hour: </string>
-    <string name="cost">Cost: </string>
-    <string name="level">Level: </string>
-    <string name="players">Players: </string>
+    <string name="hour">Star Hour: </string>
+    <string name="end_hour">End hour: </string>
+    <string name="level">Skill Level: </string>
+    <string name="players">Maximum Players: </string>
     <string-array name="levels">
         <item>Tronco</item>
         <item>Mas o meno</item>

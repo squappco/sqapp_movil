@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -59,7 +60,6 @@ public class MapsActivity extends AppCompatActivity {
     void initDrawer(){
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerListView = (ListView) findViewById(R.id.drawer_list);
-        //drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         tagsList = getResources().getStringArray(R.array.Tags);
         ArrayList<DrawerItem> listItems = new ArrayList<DrawerItem>();
 
@@ -70,7 +70,6 @@ public class MapsActivity extends AppCompatActivity {
 
         drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
-
 
         drawerToggle = new android.support.v7.app.ActionBarDrawerToggle(
                 this,

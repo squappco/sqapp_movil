@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.squapp.model.games.Data;
-import com.squapp.model.games.Game;
 
 import java.util.ArrayList;
 
@@ -30,11 +29,11 @@ public class GameAdapter extends ArrayAdapter<Data> {
 
         Data game = getItem(position);
 
-        ((TextView)convertView.findViewById(R.id.list_date)).setText(activity.getString(R.string.date) + game.getDate());
-//        ((TextView)convertView.findViewById(R.id.list_hour)).setText(activity.getString(R.string.hour) + game.getHour());
-//        ((TextView)convertView.findViewById(R.id.list_price)).setText(activity.getString(R.string.cost) + game.getPrice());
-//        ((TextView)convertView.findViewById(R.id.list_level)).setText(activity.getString(R.string.level) + game.getLevel());
-//        ((TextView)convertView.findViewById(R.id.list_players)).setText(activity.getString(R.string.players) + game.getPlayers());
+         ((TextView)convertView.findViewById(R.id.list_date)).setText(activity.getString(R.string.date) + game.getDate());
+         ((TextView)convertView.findViewById(R.id.list_hour)).setText(activity.getString(R.string.hour) + game.getStartTime());
+         ((TextView)convertView.findViewById(R.id.list_price)).setText(activity.getString(R.string.end_hour) + game.getEndTime());
+         ((TextView)convertView.findViewById(R.id.list_level)).setText(activity.getString(R.string.level) + game.getField());
+         ((TextView)convertView.findViewById(R.id.list_players)).setText(activity.getString(R.string.players) + game.getMaxPlayers());
         return convertView;
     }
 }
