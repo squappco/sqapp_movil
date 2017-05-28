@@ -33,7 +33,7 @@ GamesOfPlaceFragment extends ListFragment {
     }
 
     void createPlaceholderGames() {
-        final String url = "http://10.105.168.133/hack/public/fields/<id>/games";
+        final String url = "http://10.105.168.133/hack/public/fields/"+id+"/games";
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         Games greeting = restTemplate.getForObject(url, Games.class);

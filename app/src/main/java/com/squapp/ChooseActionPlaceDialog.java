@@ -31,13 +31,13 @@ public class ChooseActionPlaceDialog extends DialogFragment {
                 .setPositiveButton(R.string.view_games, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ((MapsActivity)getActivity()).createGameFragmentTransition();
+                        ((MapsActivity)getActivity()).viewGamesFragmentTransition();
                     }
                 })
                 .setNegativeButton(R.string.create_game, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ((MapsActivity)getActivity()).viewGamesFragmentTransition();
+                        ((MapsActivity)getActivity()).createGameFragmentTransition();
                     }
                 }).create();
     }

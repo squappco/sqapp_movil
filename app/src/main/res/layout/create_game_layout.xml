@@ -7,12 +7,14 @@
         android:layout_height="20dp"
         android:text="@string/Pick_date"
         android:textColor="#ffff"/>
+
     <DatePicker
+        android:id="@+id/date_game_pick"
         android:layout_width="300dp"
         android:layout_height="80dp"
-        android:datePickerMode="spinner"
         android:calendarViewShown="false"
-        android:id="@+id/date_game_pick"></DatePicker>
+        android:background="@color/cardview_dark_background"
+        android:datePickerMode="spinner"></DatePicker>
     <TextView
         android:layout_width="300dp"
         android:layout_height="20dp"
@@ -23,6 +25,7 @@
         android:layout_height="80dp"
         android:timePickerMode="spinner"
         android:id="@+id/picker_starting"
+        android:background="@color/cardview_dark_background"
         ></TimePicker>
     <TextView
         android:layout_width="300dp"
@@ -34,6 +37,7 @@
         android:layout_height="80dp"
         android:timePickerMode="spinner"
         android:id="@+id/picker_finish"
+        android:background="@color/cardview_dark_background"
         ></TimePicker>
     <TextView
         android:layout_width="300dp"
@@ -43,7 +47,10 @@
     <Spinner
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:id="@+id/spinner_level">
+        android:id="@+id/spinner_level"
+        android:spinnerMode="dropdown"
+        android:background="@color/cardview_dark_background"
+        android:entries="@array/levels">
     </Spinner>
     <TextView
         android:layout_width="300dp"

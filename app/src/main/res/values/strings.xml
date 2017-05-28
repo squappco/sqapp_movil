@@ -17,7 +17,6 @@
         <item>@string/find_games</item>
         <item>@string/my_games</item>
         <item>@string/venues</item>
-        <item>@string/account</item>
         <item>@string/about</item>
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>

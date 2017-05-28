@@ -45,7 +45,7 @@ public class MapsFragment extends android.app.Fragment {
 
     MapView mMapView;
     private GoogleMap mMap;
-
+    private String id="";
     public MapsFragment() {
         // Required empty public constructor
     }
@@ -113,7 +113,7 @@ public class MapsFragment extends android.app.Fragment {
         protected void onPostExecute(Fields greeting) {
             for (Data data : greeting.getData()) {
                 mMap.addMarker(new MarkerOptions()
-                        .title(data.getName())
+                        .title(data.getName()).
                         .position(new LatLng(
                                 Double.valueOf(data.getLat()),
                                 Double.valueOf(data.getLng())
@@ -131,7 +131,7 @@ public class MapsFragment extends android.app.Fragment {
                         final String url = "http://10.105.168.133/hack/public/fields?access_token=a&lat=" + lat + "&lng=" + lng;
                         RestTemplate restTemplate = new RestTemplate();
                         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                        Data greeting = restTemplate.getForObject(url, Data.class);
+                      //  Data greeting = restTemplate.getForObject(url, Data.class);
 
                         ChooseActionPlaceDialog dialog = new ChooseActionPlaceDialog();
                         dialog.setTargetFragment(MapsFragment.this,0);

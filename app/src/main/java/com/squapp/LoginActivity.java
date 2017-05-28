@@ -35,28 +35,38 @@ public class LoginActivity extends AppCompatActivity {
     AccessTokenTracker tockenTracker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
         super.onCreate(savedInstanceState);
-        firebaseAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_login);
+       /*
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        firebaseAuth = FirebaseAuth.getInstance();
         facebookLoginButton = (LoginButton)findViewById(R.id.login_button);
         callbackManager = CallbackManager.Factory.create();
         checkFacebookLoginStatus();
         facebookLoginButton.setReadPermissions("email", "public_profile");
         getFireBaseAuth();
-        facebookLoginConnection();
+        facebookLoginConnection();*/
+        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+        toast.show();
+        goToMapsActivity();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        checkFacebookLoginStatus();
+        //checkFacebookLoginStatus();
+        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+        toast.show();
+        goToMapsActivity();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        checkFacebookLoginStatus();
+       // checkFacebookLoginStatus();
+        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+        toast.show();
+        goToMapsActivity();
     }
 
     void facebookLoginConnection(){
@@ -143,7 +153,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        firebaseAuth.addAuthStateListener(authListener);
+       // firebaseAuth.addAuthStateListener(authListener);
+        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+        toast.show();
+        goToMapsActivity();
     }
 
     @Override

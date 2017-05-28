@@ -46,10 +46,7 @@ public class MapsActivity extends AppCompatActivity {
         fragmentManager = getFragmentManager();
 
         initFragments();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
 
-        myRef.setValue("Hello, World!");
 
         initDrawer();
     }
@@ -68,8 +65,7 @@ public class MapsActivity extends AppCompatActivity {
         listItems.add(new DrawerItem(tagsList[0], R.drawable.radar));
         listItems.add(new DrawerItem(tagsList[1], R.drawable.games));
         listItems.add(new DrawerItem(tagsList[2], R.drawable.find));
-        listItems.add(new DrawerItem(tagsList[3], R.drawable.account));
-        listItems.add(new DrawerItem(tagsList[4], R.drawable.settings));
+        listItems.add(new DrawerItem(tagsList[3], R.drawable.settings));
 
         drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
@@ -121,9 +117,6 @@ public class MapsActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().replace(R.id.drawer_container, venuesListFragment).commit();
                     break;
                 case 3:
-                    fragmentManager.beginTransaction().replace(R.id.drawer_container, accountFragment).commit();
-                    break;
-                case 4:
                     fragmentManager.beginTransaction().replace(R.id.drawer_container, settingsFragment).commit();
                     break;
                 default:
