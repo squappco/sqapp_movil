@@ -12,13 +12,7 @@ public class Game {
     String level;
     String players;
 
-    public Game(String gameID, String date, String hour, String price, String level, String players) {
-        this.gameID = gameID;
-        this.date = date;
-        this.hour = hour;
-        this.price = price;
-        this.level = level;
-        this.players = players;
+    public Game() {
     }
 
     public String getGameID() {
