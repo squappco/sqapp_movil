@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squapp.model.FirebaseMarker;
 
-public class MapsFragment extends ListFragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapsFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 //    private static String TAG = "MapsFragment";
 
 
