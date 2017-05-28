@@ -1,4 +1,4 @@
-package com.squapp.model;
+package com.squapp.model.fields;
 
 import java.util.ArrayList;
 import java.util.List;

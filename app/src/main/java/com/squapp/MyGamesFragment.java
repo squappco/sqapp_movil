@@ -1,11 +1,11 @@
 package com.squapp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ListFragment;
 import android.widget.ArrayAdapter;
 
-import java.security.acl.Group;
+import com.squapp.model.games.Game;
+
 import java.util.ArrayList;
 
 /**
