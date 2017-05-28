@@ -50,21 +50,22 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                Toast toast = Toast.makeText(getBaseContext(), "Login",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
                 toast.show();
+
                 Log.d("Login Act","Login");
             }
 
             @Override
             public void onCancel() {
-                Toast toast = Toast.makeText(getBaseContext(), "Cancel",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_canceled,Toast.LENGTH_LONG);
                 toast.show();
                 Log.d("Login Act","Cancel");
             }
 
             @Override
             public void onError(FacebookException exception) {
-                Toast toast = Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_failed,Toast.LENGTH_LONG);
                 toast.show();
                 Log.d("Login Act","Error");
             }
@@ -94,15 +95,14 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d("da", "signInWithCredential:onComplete:" + task.isSuccessful());
-
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
-                        if (!task.isSuccessful()) {
-                            Log.w("", "signInWithCredential", task.getException());
-                          //  Toast.makeText(com.facebook.FacebookLoginActivity.this, "Authentication failed.",
-                            //      Toast.LENGTH_SHORT).show();
+                        if (task.isSuccessful()) {
+                             FirebaseUser user = firebaseAuth.getCurrentUser();
+                             Toast.makeText(getBaseContext(), "Authentication suce.",
+                                    Toast.LENGTH_LONG).show();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(getBaseContext(), "Authentication failed.",
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });

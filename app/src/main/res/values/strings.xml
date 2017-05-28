@@ -5,4 +5,19 @@
     <string name="facebook_app_id">1302235013230199</string>
     <string name="fb_login_protocol_scheme">fb166319610444001</string>
     <string name="title_activity_maps">Map</string>
+    <string name="login_successful">Login successful</string>
+    <string name="login_canceled">Login canceled</string>
+    <string name="login_failed">Login failed</string>
+    <string name="my_games">My Games</string>
+    <string name="find_games">Find Games</string>
+    <string name="account">Account</string>
+    <string name="about">About</string>
+    <string-array name="Tags">
+        <item>@string/my_games</item>
+        <item>@string/find_games</item>
+        <item>@string/account</item>
+        <item>@string/about</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

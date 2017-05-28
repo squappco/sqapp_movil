@@ -1,7 +1,18 @@
 package com.squapp;
 
+import android.content.Intent;
+import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,43 +25,109 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
 
-    private GoogleMap mMap;
+public class MapsActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+    FragmentManager fragmentManager;
+    ListView drawerListView;
+    String[] tagsList;
+    android.support.v7.app.ActionBarDrawerToggle drawerToggle;
+    Bundle savedInstanceState;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.savedInstanceState = savedInstanceState;
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        fragmentManager = getSupportFragmentManager();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
 
         myRef.setValue("Hello, World!");
+
+        initDrawer();
     }
-
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
+    void initDrawer(){
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerListView = (ListView) findViewById(R.id.drawer_list);
+        //drawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+        tagsList = getResources().getStringArray(R.array.Tags);
+        ArrayList<DrawerItem> listItems = new ArrayList<DrawerItem>();
+        listItems.add(new DrawerItem(tagsList[0], R.drawable.games));
+        listItems.add(new DrawerItem(tagsList[1], R.drawable.find));
+        listItems.add(new DrawerItem(tagsList[2], R.drawable.Account));
+        listItems.add(new DrawerItem(tagsList[3], R.drawable.settings));
+
+        drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
+        drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        drawerToggle = new android.support.v7.app.ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                R.string.drawer_open,
+                R.string.drawer_close
+        ) {
+            public void onDrawerClosed(View view) {
+                getSupportActionBar().setTitle(getTitle());
+            }
+
+            public void onDrawerOpened(View drawerView) {
+                getSupportActionBar().setTitle(getTitle());
+            }
+        };
+        //Seteamos la escucha
+        drawerLayout.setDrawerListener(drawerToggle);
+
+        if (savedInstanceState == null) {
+            selectedItem(0);
+        }
+    }
+    private void selectedItem(int position) {
+
+            switch (position) {
+
+                case 0:
+
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+
+                    break;
+                case 3:
+
+
+                    break;
+
+                default:
+
+                    break;
+
+            }
+            // Se actualiza el item seleccionado y el título, después de cerrar el drawer
+            drawerListView.setItemChecked(position, true);
+            setTitle(tagsList[position]);
+            drawerLayout.closeDrawer(drawerListView);
+        }
+    @Override
+    public void onBackPressed() {
+
+    }
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectedItem(position);
+        }
+    }
 }
