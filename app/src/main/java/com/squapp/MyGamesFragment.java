@@ -39,4 +39,5 @@ public class MyGamesFragment extends ListFragment {
             myGames.add(data);
         }
     }
+
 }

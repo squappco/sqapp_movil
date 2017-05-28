@@ -1,11 +1,15 @@
 package com.squapp;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.squapp.model.games.Data;
 import com.squapp.model.games.Game;
@@ -24,7 +28,7 @@ public class
 GamesOfPlaceFragment extends ListFragment {
     ArrayList<Data> games;
     public String id;
-
+    int index=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +51,14 @@ GamesOfPlaceFragment extends ListFragment {
         for (Data data : greeting.getData()) {
             games.add(data);
         }
-//        games.add(new Game("1", "1", "1", "1", "1", "1"));
-//        games.add(new Game("2", "2", "2", "1", "1", "1"));
-//        games.add(new Game("3", "3", "3", "1", "1", "1"));
-//        games.add(new Game("4", "4", "4", "1", "1", "1"));
     }
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        index = position+1;
+       Toast toast = Toast.makeText(getActivity().getBaseContext(),"Added to game # "+ index,Toast.LENGTH_SHORT);
+        toast.show();
+
+    }
+
 }

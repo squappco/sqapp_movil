@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 handleFacebookAccessToken(loginResult.getAccessToken());
-                Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_SHORT);
                 toast.show();
                 goToMapsActivity();
                 Log.d("Login Act","Login");
@@ -84,14 +84,14 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Toast toast = Toast.makeText(getBaseContext(),R.string.login_canceled,Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_canceled,Toast.LENGTH_SHORT);
                 toast.show();
                 Log.d("Login Act","Cancel");
             }
 
             @Override
             public void onError(FacebookException exception) {
-                Toast toast = Toast.makeText(getBaseContext(),R.string.login_failed,Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getBaseContext(),R.string.login_failed,Toast.LENGTH_SHORT);
                 toast.show();
                 Log.d("Login Act","Error");
             }
@@ -154,7 +154,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
        // firebaseAuth.addAuthStateListener(authListener);
-        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_SHORT);
         toast.show();
         goToMapsActivity();
     }
