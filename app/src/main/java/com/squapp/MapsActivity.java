@@ -70,10 +70,14 @@ public class MapsActivity extends AppCompatActivity {
 
         drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 
         drawerToggle = new android.support.v7.app.ActionBarDrawerToggle(
                 this,
                 drawerLayout,
+                mToolbar,
                 R.string.drawer_open,
                 R.string.drawer_close
         ) {
@@ -87,8 +91,7 @@ public class MapsActivity extends AppCompatActivity {
             }
         };
         drawerLayout.setDrawerListener(drawerToggle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+
         if (savedInstanceState == null) {
             selectedItem(0);
         }
@@ -148,6 +151,8 @@ public class MapsActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        getSupportActionBar().setTitle("Find Games");
+        fragmentManager.beginTransaction().replace(R.id.drawer_container, mapsFragment).commit();
 
     }
     private class DrawerItemClickListener implements ListView.OnItemClickListener {

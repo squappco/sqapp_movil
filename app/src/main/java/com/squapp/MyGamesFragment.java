@@ -31,4 +31,5 @@ public class MyGamesFragment extends ListFragment {
 //        myGames.add(new Game("3","3","3","1","1","1"));
 //        myGames.add(new Game("4","4","4","1","1","1"));
     }
+
 }

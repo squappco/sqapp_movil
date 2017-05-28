@@ -4,7 +4,7 @@
     android:gravity="center"
     android:layout_height="match_parent" android:background="#262626">
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="70dp"
         android:orientation="vertical"
         android:layout_marginLeft="20dp"
@@ -23,15 +23,9 @@
             android:id="@+id/list_hour"
             android:textColor="#fff"
             android:textAppearance="?android:attr/textAppearanceMedium"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/list_price"
-            android:textColor="#fff"
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="170dp"
         android:layout_height="70dp"
         android:orientation="vertical"
         android:layout_marginRight="20dp"
