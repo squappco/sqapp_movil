@@ -1,4 +1,4 @@
-package com.squapp;
+package com.squapp.model.games;
 
 /**
  * Created by JdRod on 27/05/2017.
