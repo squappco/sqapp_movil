@@ -8,6 +8,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -51,6 +52,7 @@ public class CreateGameFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.create_game_layout, container,false);
+        placeID = ((MapsActivity)getActivity()).getId();
         initViews(v);
         initDate();
         validateButton();
@@ -83,6 +85,9 @@ public class CreateGameFragment extends Fragment {
                     getPlayers();
                     getSpinner();
                     sendNewGame2DB();
+                    toast = Toast.makeText(getActivity().getBaseContext(),"Game created!",Toast.LENGTH_LONG);
+                    toast.show();
+                    ((MapsActivity)getActivity()).viewGamesFragmentTransition();
                 }
             }
         });
@@ -112,6 +117,7 @@ public class CreateGameFragment extends Fragment {
         return Integer.parseInt(playersText.getText().toString()) >= 1;
     }
     private void getSpinner(){
-
+        String array[] = getResources().getStringArray(R.array.levels);
+        level = array[levelSpinner.getSelectedItemPosition()];
     }
 }

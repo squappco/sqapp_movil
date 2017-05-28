@@ -21,7 +21,9 @@ public class Data {
     String price;
     String level;
 
-    public Data() {}
+    public Data() {
+
+    }
 
     public String getId() {
         return id;

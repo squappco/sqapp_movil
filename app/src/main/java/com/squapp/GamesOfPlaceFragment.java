@@ -3,6 +3,8 @@ package com.squapp;
 import android.app.ListFragment;
 import android.os.Bundle;
 
+import android.os.StrictMode;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 
 import com.squapp.model.games.Data;
@@ -26,6 +28,10 @@ GamesOfPlaceFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        id = ((MapsActivity)getActivity()).getId();
+        Log.d("Test",id);
         games = new ArrayList<Data>();
         createPlaceholderGames();
         ArrayAdapter<Data> adapter = new GameAdapter(getActivity(), games);

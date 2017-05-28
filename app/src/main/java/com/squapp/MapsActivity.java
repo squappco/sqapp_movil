@@ -1,6 +1,7 @@
 package com.squapp;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
@@ -22,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class MapsActivity extends AppCompatActivity {
-
+    String id;
     DrawerLayout drawerLayout;
     FragmentManager fragmentManager;
     ListView drawerListView;
@@ -132,7 +133,18 @@ public class MapsActivity extends AppCompatActivity {
     public void createGameFragmentTransition(){
         fragmentManager.beginTransaction().replace(R.id.drawer_container, createGameFragment).commit();
     }
+    public void setId(String id){
+        this.id=id;
+    }
+    public String getId(){
+        return this.id;
+    }
     public void viewGamesFragmentTransition(){
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        Bundle bundle=new Bundle();
+        bundle.putString("id", id);
+        gamesOfPlaceFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.drawer_container, gamesOfPlaceFragment).commit();
     }
     @Override

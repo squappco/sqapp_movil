@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -71,6 +72,9 @@ public class MapsFragment extends android.app.Fragment {
         mMapView.onResume(); // needed to get the map to display immediately
         new HttpRequestTask().execute();
 
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
@@ -113,7 +117,7 @@ public class MapsFragment extends android.app.Fragment {
         protected void onPostExecute(Fields greeting) {
             for (Data data : greeting.getData()) {
                 mMap.addMarker(new MarkerOptions()
-                        .title(data.getName()).
+                        .title(data.getName())
                         .position(new LatLng(
                                 Double.valueOf(data.getLat()),
                                 Double.valueOf(data.getLng())
@@ -131,8 +135,9 @@ public class MapsFragment extends android.app.Fragment {
                         final String url = "http://10.105.168.133/hack/public/fields?access_token=a&lat=" + lat + "&lng=" + lng;
                         RestTemplate restTemplate = new RestTemplate();
                         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                      //  Data greeting = restTemplate.getForObject(url, Data.class);
-
+                        Data greeting = restTemplate.getForObject(url, Data.class);
+                        String id = greeting.getId();
+                        ((MapsActivity)getActivity()).setId(id);
                         ChooseActionPlaceDialog dialog = new ChooseActionPlaceDialog();
                         dialog.setTargetFragment(MapsFragment.this,0);
                         dialog.show(getFragmentManager(),"Create");
