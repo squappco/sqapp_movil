@@ -41,7 +41,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import com.squapp.helpers.GPSTracker;
 import com.squapp.model.Data;
 import com.squapp.model.Fields;
 
