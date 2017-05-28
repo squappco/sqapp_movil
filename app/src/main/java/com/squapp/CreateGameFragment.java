@@ -87,7 +87,7 @@ public class CreateGameFragment extends Fragment {
                     sendNewGame2DB();
                     toast = Toast.makeText(getActivity().getBaseContext(),"Game created!",Toast.LENGTH_LONG);
                     toast.show();
-                    ((MapsActivity)getActivity()).viewGamesFragmentTransition();
+                    ((MapsActivity)getActivity()).goToMainFragment();
                 }
             }
         });

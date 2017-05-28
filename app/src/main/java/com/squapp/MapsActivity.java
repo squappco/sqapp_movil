@@ -149,11 +149,13 @@ public class MapsActivity extends AppCompatActivity {
         gamesOfPlaceFragment.setArguments(bundle);
         fragmentManager.beginTransaction().replace(R.id.drawer_container, gamesOfPlaceFragment).commit();
     }
-    @Override
-    public void onBackPressed() {
+    public void goToMainFragment(){
         getSupportActionBar().setTitle("Find Games");
         fragmentManager.beginTransaction().replace(R.id.drawer_container, mapsFragment).commit();
-
+    }
+    @Override
+    public void onBackPressed() {
+        goToMainFragment();
     }
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
