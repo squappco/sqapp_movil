@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -62,7 +63,7 @@ public class MapsActivity extends AppCompatActivity {
         ArrayList<DrawerItem> listItems = new ArrayList<DrawerItem>();
         listItems.add(new DrawerItem(tagsList[0], R.drawable.games));
         listItems.add(new DrawerItem(tagsList[1], R.drawable.find));
-        listItems.add(new DrawerItem(tagsList[2], R.drawable.Account));
+        listItems.add(new DrawerItem(tagsList[2], R.drawable.account));
         listItems.add(new DrawerItem(tagsList[3], R.drawable.settings));
 
         drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
@@ -96,7 +97,10 @@ public class MapsActivity extends AppCompatActivity {
             switch (position) {
 
                 case 0:
-
+                    Toast toast = Toast.makeText(getBaseContext(),"MyGames/Maps",Toast.LENGTH_LONG);
+                    toast.show();
+                    MapsFragment mapsFragment = new MapsFragment();
+                    fragmentManager.beginTransaction().replace(R.id.drawer_container, mapsFragment).commit();
                     break;
                 case 1:
 

@@ -5,7 +5,6 @@
     <string name="facebook_app_id">1302235013230199</string>
     <string name="fb_login_protocol_scheme">fb166319610444001</string>
     <string name="title_activity_maps">Map</string>
-<<<<<<< HEAD
     <string name="login_successful">Login successful</string>
     <string name="login_canceled">Login canceled</string>
     <string name="login_failed">Login failed</string>
@@ -21,9 +20,4 @@
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-=======
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
->>>>>>> f0e45956c9db30a724c13cec19ef30de8c5c1656
 </resources>

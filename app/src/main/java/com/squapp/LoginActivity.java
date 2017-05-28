@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                 handleFacebookAccessToken(loginResult.getAccessToken());
                 Toast toast = Toast.makeText(getBaseContext(),R.string.login_successful,Toast.LENGTH_LONG);
                 toast.show();
-
+                goToMapsActivity();
                 Log.d("Login Act","Login");
             }
 
@@ -72,6 +72,10 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    void goToMapsActivity(){
+        Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+        startActivity(intent);
+    }
     void getFireBaseAuth(){
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
