@@ -27,4 +27,15 @@
     <string name="cost">Cost: </string>
     <string name="level">Level: </string>
     <string name="players">Players: </string>
+    <string-array name="levels">
+        <item>Tronco</item>
+        <item>Mas o meno</item>
+        <item>Crack</item>
+    </string-array>
+    <string name="Pick_date">Date</string>
+    <string name="Pick_hour_s">Starting hour</string>
+    <string name="Pick_hour_f">Finishing hour</string>
+    <string name="pick_level">Level</string>
+    <string name="pick_num_player">Number of players</string>
+    <string name="create">Create</string>
 </resources>
