@@ -8,6 +8,37 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:804944621254:android:26157d2607693fe1",
+        "android_client_info": {
+          "package_name": "com.squapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804944621254-u6vr2ei61homfirpe6scoqfcn86sa74v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCipAnrha5XpH-5t4kj1HSmN6vyq1EhLL4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:804944621254:android:c145cd769b0791a3",
         "android_client_info": {
           "package_name": "com.example.jdrod.squapp"

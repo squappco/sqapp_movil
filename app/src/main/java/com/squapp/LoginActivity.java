@@ -42,24 +42,29 @@ public class LoginActivity extends AppCompatActivity {
         facebookLoginConnection();
     }
     void facebookLoginConnection(){
-        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        Log.d("Login Act","Login");
+
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>(){
             @Override
             public void onSuccess(LoginResult loginResult) {
-              //  handleFacebookAccessToken(loginResult.getAccessToken());
+                handleFacebookAccessToken(loginResult.getAccessToken());
                 Toast toast = Toast.makeText(getBaseContext(), "Login",Toast.LENGTH_LONG);
-                Log.w("Login Act","Login");
+                toast.show();
+                Log.d("Login Act","Login");
             }
 
             @Override
             public void onCancel() {
                 Toast toast = Toast.makeText(getBaseContext(), "Cancel",Toast.LENGTH_LONG);
-                Log.w("Login Act","Cancel");
+                toast.show();
+                Log.d("Login Act","Cancel");
             }
 
             @Override
             public void onError(FacebookException exception) {
                 Toast toast = Toast.makeText(getBaseContext(), "Error",Toast.LENGTH_LONG);
-                Log.w("Login Act","Error");
+                toast.show();
+                Log.d("Login Act","Error");
             }
         });
     }
@@ -94,8 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w("", "signInWithCredential", task.getException());
-                         //   Toast.makeText(FacebookLoginActivity.this, "Authentication failed.",
-                           //       Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(com.facebook.FacebookLoginActivity.this, "Authentication failed.",
+                            //      Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
