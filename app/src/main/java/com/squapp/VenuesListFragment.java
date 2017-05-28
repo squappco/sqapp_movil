@@ -4,6 +4,12 @@ import android.app.ListFragment;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
+import com.squapp.model.fields.Data;
+import com.squapp.model.fields.Fields;
+
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.ArrayList;
 
 /**
@@ -11,20 +17,24 @@ import java.util.ArrayList;
  */
 
 public class VenuesListFragment extends ListFragment {
-    ArrayList<Venue> venues;
+    ArrayList<Data> venues;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        venues  = new ArrayList<Venue>();
+        venues  = new ArrayList<Data>();
         super.onCreate(savedInstanceState);
         createPlaceholderVenues();
-        ArrayAdapter<Venue> adapter = new VenuesAdapter(getActivity(), venues);
+        ArrayAdapter<Data> adapter = new VenuesAdapter(getActivity(), venues);
         setListAdapter(adapter);
     }
     void createPlaceholderVenues(){
-        venues.add(new Venue("1","1","1","1","1","1","1","1","1"));
-        venues.add(new Venue("2","2","2","1","1","1","1","1","1"));
-        venues.add(new Venue("3","3","3","1","1","1","1","1","1"));
-        venues.add(new Venue("4","4","4","1","1","1","1","1","1"));
+        final String url = "http://10.105.168.133/hack/public/fields?access_token=a";
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        Fields greeting = restTemplate.getForObject(url, Fields.class);
+
+        for (Data data : greeting.getData()) {
+            venues.add(data);
+        }
     }
 }
