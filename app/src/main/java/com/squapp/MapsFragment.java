@@ -1,7 +1,6 @@
 package com.squapp;
 
-<<<<<<< HEAD
-import android.app.Fragment;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,11 +15,11 @@ import android.support.v4.app.ActivityCompat;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
-=======
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
->>>>>>> 086a101e21c055342ed62d0a51e3ba00f7e38a12
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +41,7 @@ import com.squapp.model.fields.Fields;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-public class MapsFragment extends Fragment {
+public class MapsFragment extends android.app.Fragment {
 
     MapView mMapView;
     private GoogleMap mMap;
