@@ -13,11 +13,16 @@
     <string name="account">Account</string>
     <string name="about">About</string>
     <string-array name="Tags">
-        <item>@string/my_games</item>
         <item>@string/find_games</item>
+        <item>@string/my_games</item>
         <item>@string/account</item>
         <item>@string/about</item>
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="date">Date: </string>
+    <string name="hour">Hour: </string>
+    <string name="cost">Cost: </string>
+    <string name="level">Level: </string>
+    <string name="players">Players: </string>
 </resources>

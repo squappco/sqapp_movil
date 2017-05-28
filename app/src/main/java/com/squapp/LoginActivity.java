@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.AccessToken;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     LoginButton facebookLoginButton;
     CallbackManager callbackManager;
+    AccessTokenTracker tockenTracker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -39,10 +41,24 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         facebookLoginButton = (LoginButton)findViewById(R.id.login_button);
         callbackManager = CallbackManager.Factory.create();
+        checkFacebookLoginStatus();
         facebookLoginButton.setReadPermissions("email", "public_profile");
         getFireBaseAuth();
         facebookLoginConnection();
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        checkFacebookLoginStatus();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkFacebookLoginStatus();
+    }
+
     void facebookLoginConnection(){
         Log.d("Login Act","Login");
 
@@ -76,6 +92,19 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(getBaseContext(), MapsActivity.class);
         startActivity(intent);
     }
+    void checkFacebookLoginStatus(){
+        tockenTracker = new AccessTokenTracker() {
+            @Override
+            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+                checkTokenStatus(currentAccessToken);
+            }
+        };
+    }
+    void checkTokenStatus (AccessToken currentToken){
+        if(currentToken!=null){
+            goToMapsActivity();
+        }
+    }
     void getFireBaseAuth(){
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -101,12 +130,12 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                              FirebaseUser user = firebaseAuth.getCurrentUser();
-                             Toast.makeText(getBaseContext(), "Authentication suce.",
-                                    Toast.LENGTH_LONG).show();
+                            // Toast.makeText(getBaseContext(), "Authentication suce.",
+                               //     Toast.LENGTH_LONG).show();
                         } else {
                             // If sign in fails, display a message to the user.
-                            Toast.makeText(getBaseContext(), "Authentication failed.",
-                                    Toast.LENGTH_LONG).show();
+                          //  Toast.makeText(getBaseContext(), "Authentication failed.",
+                              //      Toast.LENGTH_LONG).show();
                         }
                     }
                 });

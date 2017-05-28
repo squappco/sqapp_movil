@@ -47,7 +47,6 @@ import com.squapp.model.FirebaseMarker;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-
 import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
 public class MapsFragment extends Fragment {
