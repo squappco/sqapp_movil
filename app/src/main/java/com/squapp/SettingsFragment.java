@@ -15,14 +15,15 @@ import android.view.ViewGroup;
 public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.placeholder_layout,container,false);
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.about_layout,container,false);
+        return v;
 
     }
 }
