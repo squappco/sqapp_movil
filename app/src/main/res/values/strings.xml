@@ -38,4 +38,7 @@
     <string name="pick_level">Level</string>
     <string name="pick_num_player">Number of players</string>
     <string name="create">Create</string>
+    <string name="view_games">View Games</string>
+    <string name="create_game">Create Game</string>
+    <string name="choose">Choose</string>
 </resources>

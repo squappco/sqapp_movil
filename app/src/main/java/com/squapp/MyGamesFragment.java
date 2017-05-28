@@ -1,8 +1,8 @@
 package com.squapp;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ListFragment;
 import android.widget.ArrayAdapter;
 
 import java.security.acl.Group;

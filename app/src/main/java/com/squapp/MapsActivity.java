@@ -1,10 +1,10 @@
 package com.squapp;
 
+import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -36,12 +36,14 @@ public class MapsActivity extends AppCompatActivity {
     SettingsFragment settingsFragment;
     AccountFragment accountFragment;
     VenuesListFragment venuesListFragment;
+    CreateGameFragment createGameFragment;
+    GamesOfPlaceFragment gamesOfPlaceFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
         setContentView(R.layout.activity_maps);
-        fragmentManager = getSupportFragmentManager();
+        fragmentManager = getFragmentManager();
 
         initFragments();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -102,6 +104,8 @@ public class MapsActivity extends AppCompatActivity {
         myGamesFragment = new MyGamesFragment();
         settingsFragment = new SettingsFragment();
         venuesListFragment = new VenuesListFragment();
+        createGameFragment = new CreateGameFragment();
+        gamesOfPlaceFragment = new GamesOfPlaceFragment();
     }
     void selectedItem(int position) {
 
@@ -132,6 +136,12 @@ public class MapsActivity extends AppCompatActivity {
             setTitle(tagsList[position]);
             drawerLayout.closeDrawer(drawerListView);
         }
+    public void createGameFragmentTransition(){
+        fragmentManager.beginTransaction().replace(R.id.drawer_container, createGameFragment).commit();
+    }
+    public void viewGamesFragmentTransition(){
+        fragmentManager.beginTransaction().replace(R.id.drawer_container, gamesOfPlaceFragment).commit();
+    }
     @Override
     public void onBackPressed() {
 

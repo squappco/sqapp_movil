@@ -1,5 +1,6 @@
 package com.squapp;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,7 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -140,8 +141,10 @@ public class MapsFragment extends Fragment {
                         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                         Data greeting = restTemplate.getForObject(url, Data.class);
 
-                        CreateGameFragment cgf = new CreateGameFragment();
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.drawer_container, cgf).commit();
+                        ChooseActionPlaceDialog dialog = new ChooseActionPlaceDialog();
+                        dialog.setTargetFragment(MapsFragment.this,0);
+                        dialog.show(getFragmentManager(),"Create");
+
 
                     }
                 });
