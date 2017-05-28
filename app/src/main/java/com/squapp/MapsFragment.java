@@ -40,24 +40,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-<<<<<<< HEAD
-=======
+
 import com.squapp.helpers.GPSTracker;
 import com.squapp.model.Data;
 import com.squapp.model.Fields;
->>>>>>> 183e380fd52742ebb52b5d0eb471338b47ec8240
-import com.squapp.model.FirebaseMarker;
-import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
-<<<<<<< HEAD
-public class MapsFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-//    private static String TAG = "MapsFragment";
-=======
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
-import static com.google.android.gms.location.LocationServices.FusedLocationApi;
->>>>>>> 183e380fd52742ebb52b5d0eb471338b47ec8240
 
+public class MapsFragment extends Fragment {
 
     MapView mMapView;
     private GoogleMap mMap;
@@ -119,17 +110,6 @@ import static com.google.android.gms.location.LocationServices.FusedLocationApi;
         return rootView;
     }
 
-<<<<<<< HEAD
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        return false;
-    }
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
-    }
-=======
     private class HttpRequestTask extends AsyncTask<Void, Void, Fields> {
         @Override
         protected Fields doInBackground(Void... params) {
@@ -163,5 +143,4 @@ import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
     }
 
->>>>>>> 183e380fd52742ebb52b5d0eb471338b47ec8240
 }
