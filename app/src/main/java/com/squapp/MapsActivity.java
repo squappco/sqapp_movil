@@ -29,11 +29,13 @@ public class MapsActivity extends AppCompatActivity {
     String[] tagsList;
     android.support.v7.app.ActionBarDrawerToggle drawerToggle;
     Bundle savedInstanceState;
+    //Fragments
     MapsFragment mapsFragment;
     FindGamesFragment findGamesFragment;
     MyGamesFragment myGamesFragment;
     SettingsFragment settingsFragment;
     AccountFragment accountFragment;
+    VenuesListFragment venuesListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,10 +63,11 @@ public class MapsActivity extends AppCompatActivity {
         tagsList = getResources().getStringArray(R.array.Tags);
         ArrayList<DrawerItem> listItems = new ArrayList<DrawerItem>();
 
-        listItems.add(new DrawerItem(tagsList[0], R.drawable.find));
+        listItems.add(new DrawerItem(tagsList[0], R.drawable.radar));
         listItems.add(new DrawerItem(tagsList[1], R.drawable.games));
-        listItems.add(new DrawerItem(tagsList[2], R.drawable.account));
-        listItems.add(new DrawerItem(tagsList[3], R.drawable.settings));
+        listItems.add(new DrawerItem(tagsList[2], R.drawable.find));
+        listItems.add(new DrawerItem(tagsList[3], R.drawable.account));
+        listItems.add(new DrawerItem(tagsList[4], R.drawable.settings));
 
         drawerListView.setAdapter(new DrawerListAdapter(this, listItems));
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
@@ -98,6 +101,7 @@ public class MapsActivity extends AppCompatActivity {
         findGamesFragment = new FindGamesFragment();
         myGamesFragment = new MyGamesFragment();
         settingsFragment = new SettingsFragment();
+        venuesListFragment = new VenuesListFragment();
     }
     void selectedItem(int position) {
 
@@ -110,12 +114,14 @@ public class MapsActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().replace(R.id.drawer_container, myGamesFragment).commit();
                     break;
                 case 2:
-                    fragmentManager.beginTransaction().replace(R.id.drawer_container, accountFragment).commit();
+                    fragmentManager.beginTransaction().replace(R.id.drawer_container, venuesListFragment).commit();
                     break;
                 case 3:
+                    fragmentManager.beginTransaction().replace(R.id.drawer_container, accountFragment).commit();
+                    break;
+                case 4:
                     fragmentManager.beginTransaction().replace(R.id.drawer_container, settingsFragment).commit();
                     break;
-
                 default:
 
                     break;

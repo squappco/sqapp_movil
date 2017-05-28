@@ -39,17 +39,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squapp.helpers.GPSTracker;
 import com.squapp.model.FirebaseMarker;
+import static com.google.android.gms.location.LocationServices.FusedLocationApi;
 
-<<<<<<< HEAD
 public class MapsFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 //    private static String TAG = "MapsFragment";
-=======
-import static com.google.android.gms.location.LocationServices.FusedLocationApi;
->>>>>>> 4f0a5fd891aef281b9c6cc154b33cce8eee6dcb2
 
-public class MapsFragment extends Fragment {
 
     MapView mMapView;
     private GoogleMap mMap;
@@ -106,4 +101,13 @@ public class MapsFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+    }
 }

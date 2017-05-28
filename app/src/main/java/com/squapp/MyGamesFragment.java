@@ -13,16 +13,17 @@ import java.util.ArrayList;
  */
 
 public class MyGamesFragment extends ListFragment {
-    ArrayList<Game> myGames = new ArrayList<Game>();
+    ArrayList<Game> myGames;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        createPlaceholderGroups();
+        myGames = new ArrayList<Game>();
+        createPlaceholderGames();
         ArrayAdapter<Game> adapter = new GameAdapter(getActivity(), myGames);
         setListAdapter(adapter);
     }
-    void createPlaceholderGroups(){
+    void createPlaceholderGames(){
         myGames.add(new Game("1","1","1","1","1","1"));
         myGames.add(new Game("2","2","2","1","1","1"));
         myGames.add(new Game("3","3","3","1","1","1"));
